@@ -1,14 +1,13 @@
-FROM node:18.9.1
+FROM node:latest 
 
 WORKDIR /app
 
-COPY package.json .
+COPY package-lock.json package.json .
+
+COPY . . 
 
 RUN npm install
-
-COPY . .
 
 EXPOSE 5050
 
 CMD ["npm", "start"]
-
